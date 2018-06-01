@@ -1,0 +1,15 @@
+version: "3"
+services:
+  frontend:
+    build: https://github.com/felixwaldbach/travelposterfrontend.git
+    ports:
+      - "8000:80"
+  backend:
+    build: https://github.com/felixwaldbach/travelposter.git
+    ports:
+      - "5000:80"
+  db:
+    image: mongo
+    entrypoint: mongod --bind_ip_all
+    expose: 
+      - "27017"
